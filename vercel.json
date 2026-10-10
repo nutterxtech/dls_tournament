@@ -1,7 +1,7 @@
 {
   "installCommand": "pnpm install --no-frozen-lockfile",
-  "buildCommand": "pnpm --filter ./artifacts/WEB-APP... build",
-  "outputDirectory": "artifacts/WEB-APP/dist",
+  "buildCommand": "pnpm --filter ./artifacts/football-tournament... build",
+  "outputDirectory": "artifacts/football-tournament/dist/public",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api" },
     { "source": "/(.*)", "destination": "/index.html" }
