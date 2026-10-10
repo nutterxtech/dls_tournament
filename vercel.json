@@ -1,9 +1,23 @@
 {
-  "installCommand": "pnpm install --no-frozen-lockfile",
-  "buildCommand": "pnpm --filter ./artifacts/football-tournament... build",
-  "outputDirectory": "artifacts/football-tournament/dist/public",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "api-server": {
+      "root": "artifacts/api-server",
+      "framework": "express"
+    },
+    "football-tournament": {
+      "root": "artifacts/football-tournament",
+      "framework": "vite"
+    }
+  },
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/api/(.*)",
+      "destination": { "service": "api-server" }
+    },
+    {
+      "source": "/(.*)",
+      "destination": { "service": "football-tournament" }
+    }
   ]
 }
